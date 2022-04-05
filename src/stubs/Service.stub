@@ -1,0 +1,16 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Marcelofabianov\MicroServiceBuilder\Service\BaseService;
+
+final class $CLASS_NAME$ extends BaseService
+{
+    /**
+     * @return array
+     */
+    public function execute(): array
+    {
+        //
+    }
+}

@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+
+  php:
+    container_name: microservice-build
+    image: marcelofabianov/php8.1-fpm
+    working_dir: /var/www/html/
+    volumes:
+      - .:/var/www/html/

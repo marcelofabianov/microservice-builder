@@ -1,0 +1,18 @@
+<?php
+
+namespace $NAMESPACE$;
+
+final class $CLASS_NAME$
+{
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public static function rules(): array
+    {
+        return [
+
+        ];
+    }
+}

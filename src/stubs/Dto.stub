@@ -1,0 +1,12 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Marcelofabianov\MicroServiceBuilder\Data\Dto\DtoContract;
+use Dgame\DataTransferObject\DataTransfer;
+
+final class $CLASS_NAME$ implements DtoContract
+{
+    use DataTransfer;
+
+}

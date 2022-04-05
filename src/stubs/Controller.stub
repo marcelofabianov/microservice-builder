@@ -1,0 +1,13 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Laravel\Lumen\Routing\Controller;
+
+final class $CLASS_NAME$ extends Controller
+{
+    public function handle()
+    {
+        return response()->json(['status' => 'success', 'message' => '$CLASS_NAME$@handle']);
+    }
+}

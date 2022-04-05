@@ -1,0 +1,10 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Marcelofabianov\MicroServiceBuilder\Business\BusinessContract;
+
+final class $CLASS_NAME$ implements BusinessContract
+{
+
+}

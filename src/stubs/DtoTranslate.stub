@@ -1,0 +1,28 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Marcelofabianov\MicroServiceBuilder\Data\DtoTranslate\BaseDtoTranslate;
+use Marcelofabianov\MicroServiceBuilder\Data\DtoTranslate\DtoTranslateContract;
+use Marcelofabianov\MicroServiceBuilder\Data\Dto\DtoContract;
+
+final class $CLASS_NAME$ extends BaseDtoTranslate implements DtoTranslateContract
+{
+  /**
+  * @return string
+  */
+  public function table(): string
+  {
+    return '';
+  }
+
+  public function definingMapping(): array
+  {
+    return [];
+  }
+
+  public function translateSourceFromDto(array $source): DtoContract
+  {
+    //
+  }
+}

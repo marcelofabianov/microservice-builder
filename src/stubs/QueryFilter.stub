@@ -1,0 +1,25 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Marcelofabianov\MicroServiceBuilder\Data\QueryFilters\BaseQueryFilter;
+use Marcelofabianov\MicroServiceBuilder\Data\QueryFilters\QueryFilterContract;
+use Illuminate\Database\Query\Builder as QueryBuilder;
+
+final class $CLASS_NAME$ extends BaseQueryFilter implements QueryFilterContract
+{
+    protected function setTranslate()
+    {
+        // $this->translate = '';
+    }
+
+    /**
+    * @param  QueryBuilder $query
+    * @param  $data
+    * @return QueryBuilder
+    */
+   public function apply(QueryBuilder $query, $data): QueryBuilder
+   {
+        // return $query->where($this->translate->getAttributeSource('status'), $data);
+    }
+}

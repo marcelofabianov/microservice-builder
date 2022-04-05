@@ -1,0 +1,20 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Illuminate\Http\Resources\Json\ResourceCollection;
+
+final class $CLASS_NAME$ extends ResourceCollection
+{
+    public function toArray($request): array
+    {
+        $json = ['type' => ''];
+        $json['data'] = $this->collection;
+
+        if ($request->get('links') == true) {
+            $json['links'] = ['self' => ''];
+        }
+
+        return $json;
+    }
+}

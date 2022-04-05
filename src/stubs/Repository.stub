@@ -1,0 +1,26 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Marcelofabianov\MicroServiceBuilder\Data\Repository\BaseRepository;
+use Illuminate\Database\Query\Builder as QueryBuilder;
+
+final class $CLASS_NAME$ extends BaseRepository
+{
+    /**
+     * Define Translate, Filters ...
+     */
+    protected function init()
+    {
+        //$this->translate = '';
+        //$this->filter = '';
+    }
+
+    /**
+    * @return QueryBuilder
+    */
+    public function get(): QueryBuilder
+    {
+        //
+    }
+}

@@ -1,0 +1,28 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Marcelofabianov\MicroServiceBuilder\Data\Repository\BaseRepository;
+use Marcelofabianov\MicroServiceBuilder\Data\Repository\SaveRepositoryContract;
+use Marcelofabianov\MicroServiceBuilder\Data\Dto\DtoContract;
+
+final class $CLASS_NAME$ extends BaseRepository implements SaveRepositoryContract
+{
+    /**
+     * Define Translate
+     */
+    protected function init()
+    {
+        //$this->translate = '';
+    }
+
+    /**
+     * @param DtoContract $dto
+     * @param int|null $id
+     * @return array|null
+     */
+    public function save(DtoContract $dto, int $id = null): array|null
+    {
+        //
+    }
+}

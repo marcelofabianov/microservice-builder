@@ -1,0 +1,18 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Marcelofabianov\MicroServiceBuilder\Data\QueryFilters\BaseContainerFilters;
+use Marcelofabianov\MicroServiceBuilder\Data\QueryFilters\QueryContainerFiltersContract;
+use JetBrains\PhpStorm\ArrayShape;
+
+final class $CLASS_NAME$ extends BaseContainerFilters implements QueryContainerFiltersContract
+{
+    #[ArrayShape(['status' => "string"])]
+    protected function setFilters()
+    {
+        $this->filters = [
+            'status' => '',
+        ];
+    }
+}

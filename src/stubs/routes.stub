@@ -1,0 +1,8 @@
+<?php
+
+use Laravel\Lumen\Routing\Router;
+
+/**
+ * @var Router  $router
+ */
+$router->get('/', ['as' => 'index', 'uses' => 'WelcomeController@handle']);
