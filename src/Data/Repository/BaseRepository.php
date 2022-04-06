@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Marcelofabianov\MicroServiceBuilder\Data\DtoTranslate\DtoTranslateContract as Translate;
 use Marcelofabianov\MicroServiceBuilder\Data\QueryFilters\QueryContainerFiltersContract;
 use Illuminate\Database\ConnectionInterface;
+use Illuminate\Database\Query\Builder as QueryBuilder;
 
 abstract class BaseRepository
 {
@@ -66,6 +67,16 @@ abstract class BaseRepository
             ->select($this->translate->translateSelectAlias())
             ->where($this->primaryKeyName, $id)
             ->first();
+    }
+
+    /**
+     * @return QueryBuilder
+     */
+    public function get(): QueryBuilder
+    {
+        return $this->connection
+            ->table($this->tableName)
+            ->select($this->translate->translateSelectAlias());
     }
 
     /**
