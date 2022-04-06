@@ -58,9 +58,9 @@ abstract class BaseRepository
 
     /**
      * @param int $id
-     * @return object
+     * @return object|null
      */
-    public function find(int $id): object
+    public function find(int $id): object|null
     {
         return $this->connection
             ->table($this->tableName)
