@@ -18,7 +18,7 @@ abstract class BaseContainerFilters
     {
     }
 
-    public static function new()
+    public static function instance()
     {
         $cls = static::class;
 

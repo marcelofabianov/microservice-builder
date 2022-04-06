@@ -30,7 +30,7 @@ abstract class BaseDtoTranslate implements DtoTranslateContract
         $this->translate['attributes'] = $this->definingMapping();
     }
 
-    public static function new()
+    public static function instance()
     {
         $cls = static::class;
 
