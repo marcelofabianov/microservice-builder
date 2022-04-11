@@ -14,7 +14,6 @@ class MicroServiceBuilderMakeModuleCommand extends Command
     public function handle()
     {
         $name = $this->argument('name');
-        $this->info('Create Module: app/'. $name);
 
         $make = new MakeStub();
         $make->makeModule($name);
@@ -33,6 +32,9 @@ class MicroServiceBuilderMakeModuleCommand extends Command
             'name' => ''
         ]);
 
-        $this->info('Finish Module: app/'. $name);
+        $config = config('microservice-builder');
+        $this->info('Creating Module:'. $name);
+        $this->info('path: '.$config['ROOT_DIR']);
+        $this->info('namespace: '.$config['ROOT_NAMESPACE']);
     }
 }
