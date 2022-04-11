@@ -138,7 +138,7 @@ class MakeStub
         $this->setLibFiles();
         $this->initConfig();
 
-        $this->makeDirectory(base_path($this->namespace.'/'.$module));
+        $this->makeDirectory(base_path($this->rootDir.'/'.$module));
 
         foreach ($this->pathGenerate as $subDirectory) {
             $subPath = str_replace('{MODULE}', $module, $subDirectory);
