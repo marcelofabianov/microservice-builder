@@ -23,6 +23,14 @@ Provider: Marcelofabianov\MicroServiceBuilder\MicroServiceBuilderServiceProvider
 
 No seu projeto na pasta config você irá encontrar microservice-builder.php, neste arquivo você poderá definir as suas configurações (opcional)
 
+Para utilizar de todos os recursos da DTO recomendo o uso do package em seu projeto: dgame/php-dto. Para isso coloque em seu composer.json  (opcional)
+
+```
+"dgame/php-dto": "^0.4.0",
+
+composer update
+```
+
 ## Guia de uso
 
 Com o pacote instalado em seu projeto Laravel execute em seu terminal
