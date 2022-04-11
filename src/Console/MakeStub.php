@@ -102,12 +102,12 @@ class MakeStub
         $this->rootDir = $config['ROOT_DIR'];
 
         foreach ($this->namespaceGenerate as $key => $value) {
-            $namespace = str_replace('{ROOT_NAMESPACE}', $config['namespace'], $value);
+            $namespace = str_replace('{ROOT_NAMESPACE}', $config['ROOT_NAMESPACE'], $value);
             $this->namespaceGenerate[$key] = $namespace;
         }
 
         foreach ($this->pathGenerate as $key => $value) {
-            $path = str_replace('{ROOT_DIR}', $config['namespace'], $value);
+            $path = str_replace('{ROOT_DIR}', $config['ROOT_NAMESPACE'], $value);
             $this->pathGenerate[$key] = $path;
         }
     }
