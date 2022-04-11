@@ -16,7 +16,9 @@ composer require marcelofabianov/microservice-builder
 Publicar arquivo de configuração (opcional)
 
 ```
-php artisan vendor:publish --provider="Marcelofabianov/MicroServiceBuilderServiceProvider.php" --tag="config"
+php artisan vendor:publish
+
+Provider: Marcelofabianov\MicroServiceBuilder\MicroServiceBuilderServiceProvider
 ```
 
 No seu projeto na pasta config você irá encontrar microservice-builder.php, neste arquivo você poderá definir as suas configurações (opcional)
