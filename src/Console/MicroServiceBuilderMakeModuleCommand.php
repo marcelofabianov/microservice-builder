@@ -33,7 +33,8 @@ class MicroServiceBuilderMakeModuleCommand extends Command
         ]);
 
         $config = config('microservice-builder');
-        $this->info('Creating Module:'. $name);
+        $this->info('MicroService Builder');
+        $this->info('Creating Module: '. $name);
         $this->info('path: '.$config['ROOT_DIR']);
         $this->info('namespace: '.$config['ROOT_NAMESPACE']);
     }

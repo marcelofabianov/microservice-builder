@@ -14,11 +14,11 @@ class MicroServiceBuilderMakeCommand extends Command
     {
         $make = new MakeStub();
         $make->makeStubInit($this->argument('module'),$this->argument('name'),$this->argument('stub'));
-        $this->info($make->makeStub());
 
         $config = config('microservice-builder');
-        $this->info('Creating:'. $this->argument('stub'));
-        $this->info('path: '.$config['ROOT_DIR']);
+        $this->info('MicroService Builder');
+        $this->info('Creating: '. $this->argument('stub'));
+        $this->info('path: '.$make->makeStub());
         $this->info('namespace: '.$config['ROOT_NAMESPACE']);
     }
 }

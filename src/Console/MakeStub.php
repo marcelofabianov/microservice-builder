@@ -107,7 +107,7 @@ class MakeStub
         }
 
         foreach ($this->pathGenerate as $key => $value) {
-            $path = str_replace('{ROOT_DIR}', $config['ROOT_NAMESPACE'], $value);
+            $path = str_replace('{ROOT_DIR}', $config['ROOT_DIR'], $value);
             $this->pathGenerate[$key] = $path;
         }
     }
