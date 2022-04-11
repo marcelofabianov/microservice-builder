@@ -98,8 +98,8 @@ class MakeStub
     {
         $config = config('microservice-builder');
 
-        $this->namespace = $config['namespace'];
-        $this->rootDir = $config['rootDir'];
+        $this->namespace = $config['ROOT_NAMESPACE'];
+        $this->rootDir = $config['ROOT_DIR'];
 
         foreach ($this->namespaceGenerate as $key => $value) {
             $namespace = str_replace('{ROOT_NAMESPACE}', $config['namespace'], $value);
