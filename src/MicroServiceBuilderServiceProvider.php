@@ -15,6 +15,8 @@ class MicroServiceBuilderServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        echo __DIR__.'config/microservice-builder.php';
+
         if ($this->app->runningInConsole()) {
             $this->commands([
                 MicroServiceBuilderMakeCommand::class,
@@ -22,7 +24,7 @@ class MicroServiceBuilderServiceProvider extends ServiceProvider
             ]);
 
             $this->publishes([
-                __DIR__.'/../config/microservice-builder.php' => config_path('microservice-builder.php'),
+                __DIR__.'config/microservice-builder.php' => config_path('microservice-builder.php'),
             ], 'config');
         }
     }
