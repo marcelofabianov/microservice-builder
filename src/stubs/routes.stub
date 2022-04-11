@@ -1,8 +1,5 @@
 <?php
 
-use Laravel\Lumen\Routing\Router;
+use Illuminate\Support\Facades\Route;
 
-/**
- * @var Router  $router
- */
-$router->get('/', ['as' => 'index', 'uses' => 'WelcomeController@handle']);
+Route::name('index')->get('/', 'WelcomeController@handle');
