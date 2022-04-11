@@ -60,3 +60,11 @@ Exemplo de uso
 ```
 php artisan microservice-builder:make Dto Posts Comment
 ```
+Após instalação de um novo módulo lembre de colocar em seu RouteServiceProvider a chamada para arquivo de rota do módulo
+
+```
+Route::prefix('example')
+    ->as('api.example.')
+    ->middleware('api')
+    ->group(base_path('modules/Example/routes.php'));
+```
