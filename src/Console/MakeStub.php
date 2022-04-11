@@ -30,43 +30,53 @@ class MakeStub
     protected string $stubType;
 
     /**
+     * @var string
+     */
+    protected string $namespace;
+
+    /**
+     * @var string
+     */
+    protected string $rootDir;
+
+    /**
      * @var array|string[]
      */
     protected array $pathGenerate = [
-        'Business' => 'app/{MODULE}/Business',
-        'Dto' => 'app/{MODULE}/Data/Dto',
-        'DtoTranslate' => 'app/{MODULE}/Data/DtoTranslate',
-        'ContainerFilters' => 'app/{MODULE}/Data/QueryFilters',
-        'QueryFilter' => 'app/{MODULE}/Data/QueryFilters',
-        'Repository' => 'app/{MODULE}/Data/Repositories',
-        'SaveRepository' => 'app/{MODULE}/Data/Repositories',
-        'Controller' => 'app/{MODULE}/Http/Controllers',
-        'Request' => 'app/{MODULE}/Http/Requests',
-        'Resource' => 'app/{MODULE}/Http/Resources',
-        'Collection' => 'app/{MODULE}/Http/Resources',
-        'Service' => 'app/{MODULE}/Service',
-        'Data' => 'app/{MODULE}/Data',
-        'Enums' => 'app/{MODULE}/Data/Enums',
-        'Http' => 'app/{MODULE}/Http',
-        'routes' => 'app/{MODULE}',
+        'Business' => '{ROOT_DIR}/{MODULE}/Business',
+        'Dto' => '{ROOT_DIR}/{MODULE}/Data/Dto',
+        'DtoTranslate' => '{ROOT_DIR}/{MODULE}/Data/DtoTranslate',
+        'ContainerFilters' => '{ROOT_DIR}/{MODULE}/Data/QueryFilters',
+        'QueryFilter' => '{ROOT_DIR}/{MODULE}/Data/QueryFilters',
+        'Repository' => '{ROOT_DIR}/{MODULE}/Data/Repositories',
+        'SaveRepository' => '{ROOT_DIR}/{MODULE}/Data/Repositories',
+        'Controller' => '{ROOT_DIR}/{MODULE}/Http/Controllers',
+        'Request' => '{ROOT_DIR}/{MODULE}/Http/Requests',
+        'Resource' => '{ROOT_DIR}/{MODULE}/Http/Resources',
+        'Collection' => '{ROOT_DIR}/{MODULE}/Http/Resources',
+        'Service' => '{ROOT_DIR}/{MODULE}/Service',
+        'Data' => '{ROOT_DIR}/{MODULE}/Data',
+        'Enums' => '{ROOT_DIR}/{MODULE}/Data/Enums',
+        'Http' => '{ROOT_DIR}/{MODULE}/Http',
+        'routes' => '{ROOT_DIR}/{MODULE}',
     ];
 
     /**
      * @var array|string[]
      */
     protected array $namespaceGenerate = [
-        'Business' => 'App\{MODULE}\Business',
-        'Dto' => 'App\{MODULE}\Data\Dto',
-        'DtoTranslate' => 'App\{MODULE}\Data\DtoTranslate',
-        'ContainerFilters' => 'App\{MODULE}\Data\QueryFilters',
-        'QueryFilter' => 'App\{MODULE}\Data\QueryFilters',
-        'Repository' => 'App\{MODULE}\Data\Repositories',
-        'SaveRepository' => 'App\{MODULE}\Data\Repositories',
-        'Controller' => 'App\{MODULE}\Http\Controllers',
-        'Request' => 'App\{MODULE}\Http\Requests',
-        'Resource' => 'App\{MODULE}\Http\Resources',
-        'Collection' => 'App\{MODULE}\Http\Resources',
-        'Service' => 'App\{MODULE}\Service',
+        'Business' => '{ROOT_NAMESPACE}\{MODULE}\Business',
+        'Dto' => '{ROOT_NAMESPACE}\{MODULE}\Data\Dto',
+        'DtoTranslate' => '{ROOT_NAMESPACE}\{MODULE}\Data\DtoTranslate',
+        'ContainerFilters' => '{ROOT_NAMESPACE}\{MODULE}\Data\QueryFilters',
+        'QueryFilter' => '{ROOT_NAMESPACE}\{MODULE}\Data\QueryFilters',
+        'Repository' => '{ROOT_NAMESPACE}\{MODULE}\Data\Repositories',
+        'SaveRepository' => '{ROOT_NAMESPACE}\{MODULE}\Data\Repositories',
+        'Controller' => '{ROOT_NAMESPACE}\{MODULE}\Http\Controllers',
+        'Request' => '{ROOT_NAMESPACE}\{MODULE}\Http\Requests',
+        'Resource' => '{ROOT_NAMESPACE}\{MODULE}\Http\Resources',
+        'Collection' => '{ROOT_NAMESPACE}\{MODULE}\Http\Resources',
+        'Service' => '{ROOT_NAMESPACE}\{MODULE}\Service',
     ];
 
     /**
@@ -76,10 +86,30 @@ class MakeStub
      */
     public function makeStubInit(string $module, string $className, string $stubType)
     {
+        $this->initConfig();
         $this->setLibFiles();
         $this->module = $module;
         $this->className = $className;
         $this->stubType = $stubType;
+
+    }
+
+    public function initConfig()
+    {
+        $config = config('microservice-builder');
+
+        $this->namespace = $config['namespace'];
+        $this->rootDir = $config['rootDir'];
+
+        foreach ($this->namespaceGenerate as $key => $value) {
+            $namespace = str_replace('{ROOT_NAMESPACE}', $config['namespace'], $value);
+            $this->namespaceGenerate[$key] = $namespace;
+        }
+
+        foreach ($this->pathGenerate as $key => $value) {
+            $path = str_replace('{ROOT_DIR}', $config['namespace'], $value);
+            $this->pathGenerate[$key] = $path;
+        }
     }
 
     public function setLibFiles()
@@ -106,8 +136,9 @@ class MakeStub
     public function makeModule($module)
     {
         $this->setLibFiles();
+        $this->initConfig();
 
-        $this->makeDirectory(base_path('app/'.$module));
+        $this->makeDirectory(base_path($this->namespace.'/'.$module));
 
         foreach ($this->pathGenerate as $subDirectory) {
             $subPath = str_replace('{MODULE}', $module, $subDirectory);

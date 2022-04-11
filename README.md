@@ -3,7 +3,7 @@
 Pacote que vem para testar e validar estudo de arquitetura de software utilizando padrões como DTO.
 Este pacote foi criado com objetivo de dar intefaces e classes abstradas para implementar e extender, geração de classes, arquivos e diretórios.
 
-Para saber mais sobre estudo da arquitetura acesso o repositório: ...
+Pacote para usar com o framework [Laravel](https://laravel.com/)
 
 ## Instalação
 
@@ -13,7 +13,13 @@ A instalação é através do composer
 composer require marcelofabianov/microservice-builder
 ```
 
-Recomendo o uso do pacote somente em projetos com framework Laravel 9+ e PHP 8.1+
+Publicar arquivo de configuração (opcional)
+
+```
+php artisan vendor:publish --provider="Marcelofabianov/MicroServiceBuilderServiceProvider.php" --tag="config"
+```
+
+No seu projeto na pasta config você irá encontrar microservice-builder.php, neste arquivo você poderá definir as suas configurações (opcional)
 
 ## Guia de uso
 

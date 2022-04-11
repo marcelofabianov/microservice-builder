@@ -1,0 +1,8 @@
+alias mb.l="source alias"
+alias mb.="cat alias"
+alias mb.php="docker exec microservice-build php"
+alias mb.composer="docker exec microservice-build composer"
+alias mb.i="docker exec microservice-build composer install"
+alias mb.u="docker exec microservice-build composer update"
+alias mb.up="docker-compose up -d"
+alias mb.down="docker-compose down"
