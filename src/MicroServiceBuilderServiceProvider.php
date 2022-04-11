@@ -15,7 +15,7 @@ class MicroServiceBuilderServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        echo __DIR__.'config/microservice-builder.php';
+        dd(__DIR__.'config/microservice-builder.php');
 
         if ($this->app->runningInConsole()) {
             $this->commands([
