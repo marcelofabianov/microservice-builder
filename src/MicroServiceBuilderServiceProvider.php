@@ -10,7 +10,7 @@ class MicroServiceBuilderServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'config/microservice-builder.php', 'microservice-builder');
+        $this->mergeConfigFrom(__DIR__.'/config/microservice-builder.php', 'microservice-builder');
     }
 
     public function boot()
@@ -22,7 +22,7 @@ class MicroServiceBuilderServiceProvider extends ServiceProvider
             ]);
 
             $this->publishes([
-                __DIR__.'config/microservice-builder.php' => config_path('microservice-builder.php'),
+                __DIR__.'/config/microservice-builder.php' => config_path('microservice-builder.php'),
             ], 'config');
         }
     }
