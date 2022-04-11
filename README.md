@@ -66,5 +66,11 @@ Após instalação de um novo módulo lembre de colocar em seu RouteServiceProvi
 Route::prefix('example')
     ->as('api.example.')
     ->middleware('api')
+    ->namespace('Modules\Example\Http\Controllers')
     ->group(base_path('modules/Example/routes.php'));
+```
+E para criar rotas basta acessar o arquivo routes.php dentro do módulo e acrescentar:
+
+```
+Route::name('index')->get('/', 'WelcomeController@handle');
 ```
